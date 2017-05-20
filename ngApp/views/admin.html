@@ -1,0 +1,22 @@
+<div class="container">
+  <h2>Administrator Page</h2>
+
+  <hr>
+
+  <h3>Add a Genre to BookBoss</h3>
+  <input type="text" placeholder="genre" ng-model="vm.genre.name"></input>
+
+  <button type="button" class="btn btn-primary" ng-click="vm.addGenre()">Add Genre</button>
+
+  <hr>
+
+  <h3>Current List of Genres:</h3>
+  <ul>
+    <li ng-repeat="m in vm.genres">{{m.name}}<a ng-click="vm.deleteGenre(m._id)" ui-sref="admin">Delete</a></li>
+  </ul>
+
+  <hr>
+
+  <button class="btn btn-primary" type="button" ui-sref="home">Home</button>
+
+</div>

@@ -1,0 +1,11 @@
+<div class="container">
+  <h2>Add a Book</h2>
+
+  <hr>
+
+  <input type="text" placeholder="title" ng-model="vm.book.title"></input>
+  <input type="text" placeholder="author" ng-model="vm.book.author"></input>
+  <select ng-model="vm.book.genre"><option ng-repeat="g in vm.genres" value="{{g.name}}">{{g.name}}</option></select>
+
+  <button class="btn btn-primary" type="button" ng-click="vm.addBook()" ui-sref="home">Add Book</button>
+</div>

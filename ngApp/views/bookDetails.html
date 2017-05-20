@@ -1,0 +1,15 @@
+<div class="container">
+  <h2>Book Details</h2>
+
+  <hr>
+
+  <p>Title: <input type="text" ng-disabled="true" ng-model="vm.book.title"></input></p>
+  <p>Author: <input type="text" ng-disabled="true" ng-model="vm.book.author"></input></p>
+  <p>Genre: <input type="text" ng-disabled="true" ng-model="vm.book.genre"></input></p>
+  <p>Rating: <input type="text" ng-disabled="true" ng-model="vm.book.rating"></input></p>
+  <p>Favorite Character: <input type="text" ng-disabled="true" ng-model="vm.book.favChar"></input></p>
+  <h5>Review: </h5>
+  <p><textarea rows="10" cols="50" ng-disabled="true" ng-model="vm.book.review" style="resize: none;"></textarea></p>
+
+  <button class="btn btn-primary" ui-sref="home">Okay</button>
+</div>

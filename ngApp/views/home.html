@@ -1,0 +1,186 @@
+<div class="container">
+	<div class="page-header">
+    <h4>Welcome!</h4>
+    <h2>BookBoss<small>...Keep Track of Your Favorite Reads</small></h2>
+  </div>
+
+  <div class="tab">
+    <button class="btn btn-primary" class="tablinks" ng-click="vm.openList($event, 'booksRead')">Books Read</button>
+    <button class="btn btn-primary" class="tablinks" ng-click="vm.openList($event, 'booksReading')">Books Reading</button>
+    <button class="btn btn-primary" class="tablinks" ng-click="vm.openList($event, 'bookstoRead')">Books to Read</button>
+  </div>
+</div>
+
+<div id="booksRead" class="tabcontent">
+    <hr>
+    <div class="container">
+    <h3>Books I've Read</h3>
+    <table class="table table-condensed">
+      <thead>
+        <tr>
+          <th>Title</th>
+          <th>Author</th>
+          <th>Genre</th>
+          <th></th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr ng-repeat="m in vm.booksread">
+          <td>{{m.title}}</td>
+          <td>{{m.author}}</td>
+          <td>{{m.genre}}</td>
+          <td><a href="/details/{{m._id}}/booksread">Details   </a><a href="/edit/{{m._id}}/booksread">Edit   </a><a ng-click="vm.deleteBookRead(m._id)" ui-sref="home">Delete</a></td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <hr>
+  <div class="container">
+    <a ui-sref="add({booklist: 'booksread'})" class="btn btn-primary">Add a book</a>
+  </div>
+  <hr>
+
+  <div class="container">
+<h3>My Books Read by Genre</h3>
+  <select ng-model="vm.selectedGenre" ng-change="vm.showBooksbyGenre('booksread')">
+    <!-- <option ng-repeat="m in vm.booksread">{{m.genre}}</option> -->
+    <option ng-repeat="m in vm.genres" value="{{m.name}}">{{m.name}}</option>
+  </select>
+
+  <table class="table table-condensed">
+    <thead>
+      <tr>
+        <th>Title</th>
+        <th>Author</th>
+        <th>Genre</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr ng-repeat="m in vm.genreBooksRead">
+        <td>{{m.title}}</td>
+        <td>{{m.author}}</td>
+        <td>{{m.genre}}</td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+
+</div>
+
+<div id="booksReading" class="tabcontent">
+  <hr>
+
+  <div class="container">
+  <h3>Books I'm Reading</h3>
+  <table class="table table-condensed">
+    <thead>
+      <tr>
+        <th>Title</th>
+        <th>Author</th>
+        <th>Genre</th>
+        <th></th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr ng-repeat="m in vm.booksreading">
+        <td>{{m.title}}</td>
+        <td>{{m.author}}</td>
+        <td>{{m.genre}}</td>
+        <td><a href="/details/{{m._id}}/booksreading">Details   </a><a href="/edit/{{m._id}}/booksreading">Edit   </a><a ng-click="vm.deleteBookReading(m._id)" ui-sref="home">Delete</a></td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+
+  <hr>
+  <div class="container">
+    <a ui-sref="add({booklist: 'booksreading'})" class="btn btn-primary">Add a book</a>
+  </div>
+  <hr>
+
+<div class="container">
+  <h3>Books I'm Reading, by Genre</h3>
+    <select ng-model="vm.selectedGenre" ng-change="vm.showBooksbyGenre('booksreading')">
+      <!-- <option ng-repeat="m in vm.booksreading">{{m.genre}}</option> -->
+      <option ng-repeat="m in vm.genres" value="{{m.name}}">{{m.name}}</option>
+    </select>
+    <table class="table table-condensed">
+      <thead>
+        <tr>
+          <th>Title</th>
+          <th>Author</th>
+          <th>Genre</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr ng-repeat="m in vm.genreBooksReading">
+          <td>{{m.title}}</td>
+          <td>{{m.author}}</td>
+          <td>{{m.genre}}</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+</div>
+
+<div id="bookstoRead" class="tabcontent">
+  <hr>
+  <div class="container">
+  <h3>Books I Want to Read</h3>
+  <table class="table table-condensed">
+    <thead>
+      <tr>
+        <th>Title</th>
+        <th>Author</th>
+        <th>Genre</th>
+        <th></th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr ng-repeat="m in vm.bookstoread">
+        <td>{{m.title}}</td>
+        <td>{{m.author}}</td>
+        <td>{{m.genre}}</td>
+        <td><a href="/details/{{m._id}}/bookstoread">Details   </a><a href="/edit/{{m._id}}/bookstoread">Edit   </a><a ng-click="vm.deleteBookToRead(m._id)" ui-sref="home">Delete</a></td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+  <hr>
+  <div class="container">
+    <a ui-sref="add({booklist: 'bookstoread'})" class="btn btn-primary">Add a book</a>
+  </div>
+  <hr>
+
+<div class="container">
+  <h3>Books I Want to Read, by Genre</h3>
+    <select ng-model="vm.selectedGenre" ng-change="vm.showBooksbyGenre('bookstoread')">
+      <!-- <option ng-repeat="m in vm.bookstoread">{{m.genre}}</option> -->
+      <option ng-repeat="m in vm.genres" value="{{m.name}}">{{m.name}}</option>
+    </select>
+    <table class="table table-condensed">
+      <thead>
+        <tr>
+          <th>Title</th>
+          <th>Author</th>
+          <th>Genre</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr ng-repeat="m in vm.genreBookstoRead">
+          <td>{{m.title}}</td>
+          <td>{{m.author}}</td>
+          <td>{{m.genre}}</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+</div>
+<div class="container">
+  <p><a ng-click="vm.logoutUser()" ui-sref="login">Logout</a></p>
+	<p><a ng-click="vm.gotoAdmin()">Admin</a></p>
+</div>
+</span>

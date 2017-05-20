@@ -1,0 +1,16 @@
+<div class="container">
+  <h2>Edit a Book</h2>
+
+  <hr>
+  <!-- <input type="text" ng-model="title" placeholder="{{vm.book.title}}" ></input> -->
+  <p>Title: <input type="text" placeholder="title" ng-model="vm.book.title"></input></p>
+  <p>Author: <input type="text" placeholder="author" ng-model="vm.book.author"></input></p>
+  <p>Genre: <select ng-model="vm.book.genre"><option ng-repeat="g in vm.genres" value="{{g.name}}">{{g.name}}</option></select></p>
+
+  <p><button class="btn btn-primary" type="button" ng-click="vm.editBook()" ui-sref="home">Edit Book</button></p>
+  <hr>
+  <p>Rating: <select ng-model="vm.book.rating"><option ng-repeat="g in vm.ratingNames" value="{{g}}">{{g}}</option></select></p>
+  <p>Favorite Character: <input type="text" placeholder="Favorite character" ng-model="vm.book.favChar"></input></p>
+  <p>Review: </p>
+  <p><textarea rows="10" cols="50" id="aboutDescription" ng-model="vm.book.review" style="resize: none;"></textarea></p>
+</div>
